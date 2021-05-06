@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'profil' => 'profil#index'
+  get '/profiles', to: 'profiles#show'
   resources :offers
   devise_for :users
-  root "pages#index"
-  get "/pages", to: "pages#index"
+  root "pages#home"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

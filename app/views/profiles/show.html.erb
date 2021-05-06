@@ -1,0 +1,17 @@
+<h1>Profil</h1>
+
+<ul class="list-group">
+  <% @offers.each do |offer| %>
+    <li class="list-group-item">
+      <b><%= offer.title %><b>
+      <p><%= offer.description %></p>
+      <p><%= offer.city %></p>
+      <p><%= offer.salary %></p>
+      <%= link_to 'Show', offer %>
+      <%= link_to 'Edit', edit_offer_path(offer) %>
+      <%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+<%= current_user.email %>
+

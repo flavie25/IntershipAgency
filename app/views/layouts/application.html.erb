@@ -39,7 +39,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <% if user_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to  'Profil', profil_path, class: "nav-link" %>
+                  <%= link_to  'Profil', profiles_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to  'Deconnexion', destroy_user_session_path, method: :delete, class: "nav-link" %>
