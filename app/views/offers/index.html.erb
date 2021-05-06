@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Offers</h1>
+
+
+<ul class="list-group">
+  <% @offers.each do |offer| %>
+    <li class="list-group-item">
+      <b><%= offer.title %><b>
+      <p><%= offer.description %></p>
+      <p><%= offer.city %></p>
+      <p><%= offer.salary %></p>
+    </li>
+  <% end %>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>City</th>
+      <th>Salary</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.title %></td>
+        <td><%= offer.description %></td>
+        <td><%= offer.city %></td>
+        <td><%= offer.salary %></td>
+        <td><%= offer.user_id %></td>
+        <td><%= link_to 'Show', offer %></td>
+        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
