@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'profil' => 'profil#index'
   resources :offers
   devise_for :users
   root "pages#index"

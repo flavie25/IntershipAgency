@@ -1,46 +1,22 @@
 
 <% if user_signed_in? %>
-  <%= form_with(model: offer) do |form| %>
-    <% if offer.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+  <% if offer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
 
-          <ul>
-            <% offer.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
-    <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title %>
-    </div>
-
-    <div class="field">
-      <%= form.label :description %>
-      <%= form.text_area :description %>
-    </div>
-
-    <div class="field">
-      <%= form.label :city %>
-      <%= form.text_field :city %>
-    </div>
-
-    <div class="field">
-      <%= form.label :salary %>
-      <%= form.text_field :salary %>
-    </div>
-
-    <div class="field">
-      <%= form.label :user_id %>
-      <%= form.text_field :user_id %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
+        <ul>
+          <% offer.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+  <%= simple_form_for @offer do |f| %>
+    <%= f.input :title  %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :city %>
+    <%= f.input :salary %>
+    <%= f.button :submit %>
   <% end %>
 <% else %>
   <p>Vous devez être connecté pour déposer une offre.</p>
@@ -48,10 +24,3 @@
   <%= link_to  'Inscription', new_user_registration_path,  class:"btn btn-primary" %>
 <% end %>
 
-<%= simple_form_for @offer do |f| %>
-  <%= f.input :title  %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :city %>
-  <%= f.input :salary %>
-  <%= f.button :submit %>
-<% end %>
