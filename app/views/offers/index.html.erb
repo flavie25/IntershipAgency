@@ -1,23 +1,15 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Offers</h1>
-
-
-<ul class="list-group">
-  <% @offers.each do |offer| %>
-    <li class="list-group-item">
-      <b><%= offer.title %><b>
-      <p><%= offer.description %></p>
-      <p><%= offer.city %></p>
-      <p><%= offer.salary %></p>
-      <%= link_to 'Show', offer %>
-      <%= link_to 'Edit', edit_offer_path(offer) %>
-      <%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+<h1>Toutes les offres</h1>
+<% @offers.each do |offer| %>
+  <div class="card-body">
+    <h4><b><%= offer.title %></b></h4>
+    <p><b>Description:</b> <%= offer.description %></p>
+    <p><b>Ville:</b> <%= offer.city %></p>
+    <p><b>Rémunération:</b> <%= offer.salary %></p>
+  </div>
+<% end %>
 
 
         
 
-<%= link_to 'New Offer', new_offer_path %>
+<%= link_to 'Créer une offre', new_offer_path, class:"btn btn-dark" %>

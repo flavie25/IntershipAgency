@@ -1,12 +1,19 @@
-<h1>Bienvenue sur Intership</h1>
-<p>La platforme qui va t'aider à trouver un stage</p>
-<ul class="list-group">
-  <li class="list-group-item">
-    <b>An active item</b>
-    <p>lorem ipsum</p>
-  </li>
-  <li class="list-group-item">A second item</li>
-  <li class="list-group-item">A third item</li>
-  <li class="list-group-item">A fourth item</li>
-  <li class="list-group-item">And a fifth one</li>
-</ul>
+<div class="profil">
+  <%= image_tag("logo.jpg", class:"logo") %>
+  <h1>Bienvenue sur Intership</h1>
+  <p>La plateforme qui va t'aider à trouver un stage, un emploi ou une alternance.<br>Tu peux retrouver ici toutes les offres disponibles.</p>
+</div>
+
+<% @offers.limit(3).each do |offer| %>
+  <div class="card-body">
+    <h3><b><%= offer.title %></b></h3>
+    <p><b>Description:</b> <%= offer.description %></p>
+    <p><b>Ville:</b> <%= offer.city %></p>
+    <p><b>Rémunération:</b> <%= offer.salary %></p>
+  </div>
+<% end %>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to 'Voir plus', offers_path, class:"btn btn-dark" %>
+</div>
+

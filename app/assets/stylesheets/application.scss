@@ -1,5 +1,33 @@
 @import 'bootstrap';
-.nav-item a {
-    text-decoration: none;
-    color: black;
+.navbar {
+    background-color: rgb(24, 24, 189);
+}
+
+.container-sm {
+    margin-top: 50px;
+}
+
+.card-body {
+    border: 1.5px solid rgb(24, 24, 189);
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.btn {
+    margin: 10px 0;
+}
+
+.logo {
+    width: 30%;
+}
+
+.logo-nav {
+    width: 5%;
+    margin: 0 10px 0 0;
+}
+
+@media (max-width:800px) {
+    .logo-nav {
+        width: 20%;
+    }
 }

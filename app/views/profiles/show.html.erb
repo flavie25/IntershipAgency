@@ -1,17 +1,24 @@
-<h1>Profil</h1>
+<div class="profil">
+  <h1>Mon compte</h1>
+  <p><%= current_user.email%></p>
+</div>
+ 
+<h2>Toutes mes offres</h2>
 
-<ul class="list-group">
-  <% @offers.each do |offer| %>
-    <li class="list-group-item">
-      <b><%= offer.title %><b>
-      <p><%= offer.description %></p>
-      <p><%= offer.city %></p>
-      <p><%= offer.salary %></p>
-      <%= link_to 'Show', offer %>
-      <%= link_to 'Edit', edit_offer_path(offer) %>
-      <%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
-<%= current_user.email %>
+<% @offers.each do |offer| %>
+  <div class="card-body">
+    <h4><b><%= offer.title %></b></h4>
+    <p><b>Description:</b> <%= offer.description %></p>
+    <p><b>Ville:</b> <%= offer.city %></p>
+    <p><b>Rémunération:</b> <%= offer.salary %></p>
+    <%= link_to 'Modifier', edit_offer_path(offer), class:"btn btn-dark" %>
+    <%= link_to 'Effacer', offer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-dark" %>
+  </div>
+<% end %>
+
+<div class="profil">
+  <%= link_to 'Nouvelle offre', new_offer_path, class:"btn btn-dark" %>
+</div>
+
+
 
